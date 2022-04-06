@@ -1,7 +1,10 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json()) // for parsing application/json
+app.use(morgan('tiny'))
+
 
 let persons = [
   {
@@ -33,28 +36,28 @@ app.get('/', (request, response) => {
 
 // get all persons
 app.get('/api/persons', (request, response) => {
-    response.json(persons)
+  response.json(persons)
 })
 
 // get info about phonebook
 app.get('/info', (request, response) => {
-    const message = `The phonebook contains ${persons.length} contacts.`
-    const timestamp = new Date()
-    const content = `<p>${message}</p><p>The time is: ${timestamp}</p>`
-    response.send(content)
+  const message = `The phonebook contains ${persons.length} contacts.`
+  const timestamp = new Date()
+  const content = `<p>${message}</p><p>The time is: ${timestamp}</p>`
+  response.send(content)
 })
 
 // get single person
 app.get('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    const person = persons.find((personElement) => {
-        return personElement.id === id
-    })
-    if (person) {
-        response.json(person)
-    } else {
-        response.status(404).end()
-    } 
+  const id = Number(request.params.id)
+  const person = persons.find((personElement) => {
+    return personElement.id === id
+  })
+  if (person) {
+    response.json(person)
+  } else {
+    response.status(404).end()
+  }
 })
 
 // create single person
@@ -69,9 +72,9 @@ app.post('/api/persons', (request, response) => {
   }
 
   // if name exists in phonebook
-  if (persons.some(person => person.name === body.name)) {
+  if (persons.some((person) => person.name === body.name)) {
     return response.status(400).json({
-      error: 'Contact name already exists in phonebook.'
+      error: 'Contact name already exists in phonebook.',
     })
   }
 
@@ -89,11 +92,10 @@ app.post('/api/persons', (request, response) => {
 
 // delete single person
 app.delete('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    persons = persons.filter((person) => person.id !== id)
-    response.status(204).end()
-  })
-  
+  const id = Number(request.params.id)
+  persons = persons.filter((person) => person.id !== id)
+  response.status(204).end()
+})
 
 const PORT = 3001
 app.listen(PORT, () => {
