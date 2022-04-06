@@ -71,7 +71,7 @@ app.post('/api/persons', (request, response) => {
     name: body.name,
     number: body.number,
     date: new Date(),
-    id: generateId(),
+    id: Math.floor(Math.random() * 100),
   }
 
   persons = persons.concat(person)
