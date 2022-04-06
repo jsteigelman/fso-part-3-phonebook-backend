@@ -36,6 +36,14 @@ app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
 
+// get info
+app.get('/info', (request, response) => {
+    const message = `The phonebook contains ${persons.length} contacts.`
+    const timestamp = new Date()
+    const content = `<p>${message}</p><p>The time is: ${timestamp}</p>`
+    response.send(content)
+})
+
 // POST method route
 app.post('/api/persons', (request, response) => {
   const body = request.body
