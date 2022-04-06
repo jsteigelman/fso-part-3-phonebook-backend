@@ -57,7 +57,7 @@ app.get('/api/persons/:id', (request, response) => {
     } 
 })
 
-// POST method route
+// create single person
 app.post('/api/persons', (request, response) => {
   const body = request.body
   if (!body.name) {
@@ -78,6 +78,14 @@ app.post('/api/persons', (request, response) => {
 
   response.json(person)
 })
+
+// delete single person
+app.delete('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    persons = persons.filter((person) => person.id !== id)
+    response.status(204).end()
+  })
+  
 
 const PORT = 3001
 app.listen(PORT, () => {
