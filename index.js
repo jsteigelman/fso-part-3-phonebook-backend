@@ -36,12 +36,25 @@ app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
 
-// get info
+// get info about phonebook
 app.get('/info', (request, response) => {
     const message = `The phonebook contains ${persons.length} contacts.`
     const timestamp = new Date()
     const content = `<p>${message}</p><p>The time is: ${timestamp}</p>`
     response.send(content)
+})
+
+// get single person
+app.get('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    const person = persons.find((personElement) => {
+        return personElement.id === id
+    })
+    if (person) {
+        response.json(person)
+    } else {
+        response.status(404).end()
+    } 
 })
 
 // POST method route
