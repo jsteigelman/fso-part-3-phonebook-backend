@@ -60,12 +60,20 @@ app.get('/api/persons/:id', (request, response) => {
 // create single person
 app.post('/api/persons', (request, response) => {
   const body = request.body
-  if (!body.name) {
+
+  // if name or number is missing then return error
+  if (!body.name || !body.number) {
     return response.status(404).json({
-      error: 'person name is missing',
+      error: 'Contact must have a name and number.',
     })
   }
-  response.send('POST request to the homepage')
+
+  // if name exists in phonebook
+  if (persons.some(person => person.name === body.name)) {
+    return response.status(400).json({
+      error: 'Contact name already exists in phonebook.'
+    })
+  }
 
   const person = {
     name: body.name,
