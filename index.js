@@ -1,9 +1,11 @@
 const express = require('express')
-const morgan = require('morgan')
-const app = express()
+// const morgan = require('morgan')
+const cors = require('cors')
 
+const app = express()
 app.use(express.json()) // for parsing application/json
-app.use(morgan(':method :url :body')) 
+// app.use(morgan(':method :url :body')) 
+app.use(cors())
 
 let persons = [
   {
@@ -89,11 +91,11 @@ app.post('/api/persons', (request, response) => {
   response.json(person)
 
   // use middleware to log body of post request to console
-  morgan.token('body', request => JSON.stringify(request.body))
+  // morgan.token('body', request => JSON.stringify(request.body))
 })
 
 
-app.use(morgan(':method :url :body'))
+// app.use(morgan(':method :url :body'))
 
 // delete single person
 app.delete('/api/persons/:id', (request, response) => {
