@@ -1,4 +1,4 @@
-# Full Stack Open - Part 3 (Phonebook)
+# Full Stack Open - Part 3 (Phonebook Backend)
 This project is currently in progress!
 
 ## About Full Stack Open
