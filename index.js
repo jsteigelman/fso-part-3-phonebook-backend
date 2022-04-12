@@ -6,6 +6,7 @@ const app = express()
 app.use(express.json()) // for parsing application/json
 // app.use(morgan(':method :url :body')) 
 app.use(cors())
+app.use(express.static('build'))
 
 let persons = [
   {
