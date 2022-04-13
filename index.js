@@ -38,7 +38,7 @@ app.get('/', (request, response) => {
 
 // get all persons
 app.get('/api/persons', (request, response) => {
-  response.json(persons)
+  return response.json(persons)
 })
 
 // get info about phonebook
