@@ -8,12 +8,12 @@ The course covers testing, configuration and environment management, and the use
 
 The course is worth 5-13 credits, and the content is the same as in the Full stack course held at the Department of Computer Science at the University of Helsinki in Spring 2020. There is also an associated project that is worth 1-10 credits.
 
-<!-- ## Live Site URL
+## Live Site URL
+https://steigelman-phonebook.herokuapp.com/
+
+<!-- ## Website Preview -->
 
 
-## Website Preview
-
- -->
  
 ## Built With
 * [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
