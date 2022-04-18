@@ -1,6 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 // const morgan = require('morgan')
 const cors = require('cors')
+const Person = require('./models/person')
 
 const app = express()
 app.use(express.json()) // for parsing application/json
@@ -38,7 +40,9 @@ app.get('/', (request, response) => {
 
 // get all persons
 app.get('/api/persons', (request, response) => {
-  return response.json(persons)
+  Person.find({}).then(persons => {
+    response.json(persons)
+  })
 })
 
 // get info about phonebook
@@ -51,15 +55,18 @@ app.get('/info', (request, response) => {
 
 // get single person
 app.get('/api/persons/:id', (request, response) => {
-  const id = Number(request.params.id)
-  const person = persons.find((personElement) => {
-    return personElement.id === id
-  })
-  if (person) {
-    response.json(person)
-  } else {
-    response.status(404).end()
-  }
+  Person.findById(Number(request.params.id))
+    .then(person => response.json(person))
+    .catch(error => console.log(response.status(404).end()))
+  // const id = Number(request.params.id)
+  // const person = persons.find((personElement) => {
+  //   return personElement.id === id
+  // })
+  // if (person) {
+  //   response.json(person)
+  // } else {
+  //   response.status(404).end()
+  // }
 })
 
 // create single person
@@ -68,28 +75,33 @@ app.post('/api/persons', (request, response) => {
 
   // if name or number is missing then return error
   if (!body.name || !body.number) {
-    return response.status(404).json({
+    return response.status(400).json({
       error: 'Contact must have a name and number.',
     })
   }
 
-  // if name exists in phonebook
+  // if name exists in phonebook, prevent duplicate entry
   if (persons.some((person) => person.name === body.name)) {
     return response.status(400).json({
       error: 'Contact name already exists in phonebook.',
     })
   }
 
-  const person = {
+  const person = new Person({
     name: body.name,
     number: body.number,
     date: new Date(),
     id: Math.floor(Math.random() * 100),
-  }
+  })
 
   persons = persons.concat(person)
 
-  response.json(person)
+  person.save().then(savedPerson => {
+    response.json(savedPerson)
+  })
+
+
+  // response.json(person)
 
   // use middleware to log body of post request to console
   // morgan.token('body', request => JSON.stringify(request.body))

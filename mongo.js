@@ -1,3 +1,6 @@
+require('dotenv').config()
+console.log(process.env) // remove this after you've confirmed it working
+
 const mongoose = require('mongoose')
 const url = process.env.MONGODB_URL
 
