@@ -1,0 +1,7 @@
+// add single note
+PUT http://localhost:3001/api/persons/625cb85ce9ca62de52b94b5b
+Content-Type: application/json
+
+{
+    "name": "Anna 2"
+}
