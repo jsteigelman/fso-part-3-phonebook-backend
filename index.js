@@ -46,8 +46,9 @@ app.get('/api/persons', (request, response) => {
 })
 
 // get info about phonebook
-app.get('/info', (request, response) => {
-  const message = `The phonebook contains ${persons.length} contacts.`
+app.get('/info', async (request, response) => {
+  const totalDocs = await Person.countDocuments()
+  const message = `The phonebook contains ${totalDocs} contacts.`
   const timestamp = new Date()
   const content = `<p>${message}</p><p>The time is: ${timestamp}</p>`
   response.send(content)
