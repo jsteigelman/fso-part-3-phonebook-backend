@@ -55,7 +55,7 @@ app.get('/info', (request, response) => {
 
 // get single person
 app.get('/api/persons/:id', (request, response) => {
-  Person.findById(Number(request.params.id))
+  Person.findById(request.params.id)
     .then(person => response.json(person))
     .catch(error => console.log(response.status(404).end()))
 })
