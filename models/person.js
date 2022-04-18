@@ -14,5 +14,13 @@ const PersonSchema = new mongoose.Schema({
     number: String,
 })
 
+PersonSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+      returnedObject.id = returnedObject._id.toString()
+      delete returnedObject._id
+      delete returnedObject.__v
+    }
+  })
+
 // define the public interface of the module
 module.exports = mongoose.model('Person', PersonSchema)
