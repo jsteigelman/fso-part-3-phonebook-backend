@@ -131,7 +131,21 @@ app.put('/api/persons/:id', (request, response, next) => {
     number: updatedData.number
   }
 
-  Person.findByIdAndUpdate(request.params.id, updatedPerson, { new: true })
+  const opts = { 
+    new: true,
+    runValidators: true 
+  }
+
+  // Pre hook for `findOneAndUpdate`
+  // Person.pre('findOneAndUpdate', function(next) {
+  //   this.options.new = true
+  //   this.options.runValidators = true
+  //   next()
+  // });
+
+  Person.findByIdAndUpdate(request.params.id, updatedPerson, { new: true, runValidators: true })
+
+  // Person.findByIdAndUpdate(request.params.id, updatedPerson, { new: true })
     .then(updatedPerson => {
       response.json(updatedPerson)
     })
