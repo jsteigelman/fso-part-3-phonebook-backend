@@ -62,7 +62,7 @@ app.get('/api/persons/:id', (request, response) => {
 })
 
 // create single person
-app.post('/api/persons', (request, response) => {
+app.post('/api/persons', (request, response, next) => {
   const body = request.body
 
   // if name or number is missing then return error
@@ -79,6 +79,27 @@ app.post('/api/persons', (request, response) => {
     })
   }
 
+  // try {
+  //   const person = new Person({
+  //     name: body.name,
+  //     number: body.number,
+  //     date: new Date(),
+  //     id: Math.floor(Math.random() * 100),
+  //   })
+  
+  //   persons = persons.concat(person)
+  
+  //   person.save().then(savedPerson => {
+  //     response.json(savedPerson)
+  //   })
+  // } catch (error) {
+  //   if (error.name === "ValidationError") {
+  //     return console.log('hi')
+  //   }
+
+  //   return console.log('Error in catch block')
+  // }
+
   const person = new Person({
     name: body.name,
     number: body.number,
@@ -90,7 +111,7 @@ app.post('/api/persons', (request, response) => {
 
   person.save().then(savedPerson => {
     response.json(savedPerson)
-  })
+  }).catch(error => next(error))
 
 
   // response.json(person)

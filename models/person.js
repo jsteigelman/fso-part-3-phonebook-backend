@@ -8,10 +8,19 @@ mongoose.connect(url)
     .then(result => console.log('Connected to MongoDB!'))
     .catch(error => console.log('Error connecting to MongoDB.'))
 
+
 // define a mongoose model
 const PersonSchema = new mongoose.Schema({
-    name: String,
-    number: String,
+    name: {
+      type: String,
+      minLength: 2, // set to zero while I debug why validation failure causes crash
+      required: true
+    },
+    number: {
+      type: String,
+      minLength: 10, // set to zero while I debug why validation failure causes crash
+      required: true
+    }
 })
 
 PersonSchema.set('toJSON', {
