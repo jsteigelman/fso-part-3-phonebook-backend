@@ -6,7 +6,7 @@ const Person = require('./models/person')
 
 const app = express()
 app.use(express.json()) // for parsing application/json
-// app.use(morgan(':method :url :body')) 
+// app.use(morgan(':method :url :body'))
 app.use(cors())
 app.use(express.static('build'))
 
@@ -79,27 +79,6 @@ app.post('/api/persons', (request, response, next) => {
     })
   }
 
-  // try {
-  //   const person = new Person({
-  //     name: body.name,
-  //     number: body.number,
-  //     date: new Date(),
-  //     id: Math.floor(Math.random() * 100),
-  //   })
-  
-  //   persons = persons.concat(person)
-  
-  //   person.save().then(savedPerson => {
-  //     response.json(savedPerson)
-  //   })
-  // } catch (error) {
-  //   if (error.name === "ValidationError") {
-  //     return console.log('hi')
-  //   }
-
-  //   return console.log('Error in catch block')
-  // }
-
   const person = new Person({
     name: body.name,
     number: body.number,
@@ -113,9 +92,6 @@ app.post('/api/persons', (request, response, next) => {
     response.json(savedPerson)
   }).catch(error => next(error))
 
-
-  // response.json(person)
-
   // use middleware to log body of post request to console
   // morgan.token('body', request => JSON.stringify(request.body))
 })
@@ -126,22 +102,10 @@ app.post('/api/persons', (request, response, next) => {
 // update a person
 app.put('/api/persons/:id', (request, response, next) => {
   const updatedData = request.body
-  
+
   const updatedPerson = {
     number: updatedData.number
   }
-
-  const opts = { 
-    new: true,
-    runValidators: true 
-  }
-
-  // Pre hook for `findOneAndUpdate`
-  // Person.pre('findOneAndUpdate', function(next) {
-  //   this.options.new = true
-  //   this.options.runValidators = true
-  //   next()
-  // });
 
   Person.findByIdAndUpdate(request.params.id, updatedPerson, { new: true, runValidators: true })
 
