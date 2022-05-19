@@ -8,16 +8,22 @@ This project incorporates frontend code from a seperate repository: [https://git
 https://steigelman-phonebook.herokuapp.com/
 
 ## Functionality
-* User can add a contact to the phonebook
-* User can delete a contact from the phonebook
+* User can `create` a contact
+* User can `read` all the contacts currently stored in the phonebook
+* User can `update` a contact by entering an existing contact name, with a new number, in the "Add Contact" section
+* User can `delete` a contact
 * User can search for a contact in the phonebook
 
 ## Built With
-* [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
+* [cors](https://www.npmjs.com/package/cors) - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options
+* [dotenv](https://www.npmjs.com/package/dotenv) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
+* [eslint](https://eslint.org/) - ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code
 * [express](https://expressjs.com/) - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
+* [MongoDB](https://www.mongodb.com/) - MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
+* [Mongoose](https://mongoosejs.com/) - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 * [Morgan](https://github.com/expressjs/morgan) - HTTP request logger middleware for node.js
-<!-- * [MongoDB](https://www.mongodb.com/) - MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
- -->
+* [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
+
 
 ## About Full Stack Open
 
