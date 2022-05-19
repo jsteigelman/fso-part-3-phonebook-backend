@@ -16,12 +16,13 @@ https://steigelman-phonebook.herokuapp.com/
 * User can delete a contact from the phonebook
 * User can search for a contact in the phonebook
 
-## Website Preview
-<img width="900" alt="phonebook" src="https://user-images.githubusercontent.com/65603938/169331130-3f62d09f-69f8-4b56-8388-3e9f6fd38e54.png">
-
 ## Built With
 * [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
 * [express](https://expressjs.com/) - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
 * [Morgan](https://github.com/expressjs/morgan) - HTTP request logger middleware for node.js
 <!-- * [MongoDB](https://www.mongodb.com/) - MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
  -->
+
+## Website Preview
+<img width="900" alt="phonebook" src="https://user-images.githubusercontent.com/65603938/169331130-3f62d09f-69f8-4b56-8388-3e9f6fd38e54.png">
+
