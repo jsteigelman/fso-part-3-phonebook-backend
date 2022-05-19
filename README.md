@@ -11,8 +11,12 @@ The course is worth 5-13 credits, and the content is the same as in the Full sta
 ## Live Site URL
 https://steigelman-phonebook.herokuapp.com/
 
-## Website Preview
+## Functionality
+* User can add a contact to the phonebook
+* User can delete a contact from the phonebook
+* User can search for a contact in the phonebook
 
+## Website Preview
 <img width="900" alt="phonebook" src="https://user-images.githubusercontent.com/65603938/169331130-3f62d09f-69f8-4b56-8388-3e9f6fd38e54.png">
 
 ## Built With
