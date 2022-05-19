@@ -11,10 +11,10 @@ The course is worth 5-13 credits, and the content is the same as in the Full sta
 ## Live Site URL
 https://steigelman-phonebook.herokuapp.com/
 
-<!-- ## Website Preview -->
+## Website Preview
 
+<img width="900" alt="phonebook" src="https://user-images.githubusercontent.com/65603938/169331130-3f62d09f-69f8-4b56-8388-3e9f6fd38e54.png">
 
- 
 ## Built With
 * [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
 * [express](https://expressjs.com/) - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
