@@ -1,4 +1,4 @@
-# Full Stack Open - Part 3 (Phonebook Backend)
+# Phonebook App - Backend
  
 This is a phonebook web app that allows CRUD operations on phonebook contacts via a REST API.
 
