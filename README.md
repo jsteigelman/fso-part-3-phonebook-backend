@@ -2,7 +2,7 @@
  
 This is a phonebook web app that allows CRUD operations on phonebook contacts via a REST API.
 
-This project incorporates frontend code from a seperate repository: [https://github.com/jsteigelman/fso-part-2-phonebook-frontend](https://github.com/jsteigelman/fso-part-2-phonebook-frontend)
+This project incorporates my frontend code from a seperate repository: [https://github.com/jsteigelman/fso-part-2-phonebook-frontend](https://github.com/jsteigelman/fso-part-2-phonebook-frontend)
 
 ## Live Site URL
 https://steigelman-phonebook.herokuapp.com/
